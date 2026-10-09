@@ -27,12 +27,17 @@ body {
 }
 
 body[data-theme='dark'] .site-header {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.8);
   border-bottom-color: var(--border-light);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 body[data-theme='dark'] .hero-section {
-  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12), transparent 55%), var(--bg-page);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.18), transparent 55%),
+    var(--bg-page);
 }
 
 body[data-theme='dark'] .search-box-card,
@@ -46,7 +51,7 @@ body[data-theme='dark'] .site-footer,
 body[data-theme='dark'] .empty-state {
   background: rgba(15, 23, 42, 0.94);
   border-color: var(--border-light);
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
+  box-shadow: 0 12px 36px rgba(2, 6, 23, 0.52);
 }
 
 body[data-theme='dark'] .form-control,
@@ -57,7 +62,7 @@ body[data-theme='dark'] .btn-ghost,
 body[data-theme='dark'] .btn-outline,
 body[data-theme='dark'] .prompt-chip,
 body[data-theme='dark'] .segment-btn {
-  background-color: rgba(15, 23, 42, 0.8);
+  background-color: rgba(15, 23, 42, 0.82);
   color: var(--text-main);
   border-color: var(--border-light);
 }
@@ -73,6 +78,17 @@ body[data-theme='dark'] .master-banner {
   background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(14, 116, 144, 0.18));
 }
 
+body[data-theme='dark'] .hero-trust-badge,
+body[data-theme='dark'] .float-card,
+body[data-theme='dark'] .order-problem-box,
+body[data-theme='dark'] .modal-master-banner,
+body[data-theme='dark'] .ai-chat-thread,
+body[data-theme='dark'] .msg-body {
+  background: rgba(15, 23, 42, 0.9);
+  border-color: var(--border-light);
+}
+
+body[data-theme='dark'] .master-service,
 body[data-theme='dark'] .section-kicker,
 body[data-theme='dark'] .logo-text span,
 body[data-theme='dark'] .highlight-gradient {
@@ -81,10 +97,12 @@ body[data-theme='dark'] .highlight-gradient {
 
 body[data-theme='dark'] .social-link,
 body[data-theme='dark'] .footer-links a,
+body[data-theme='dark'] .footer-contact-list span,
 body[data-theme='dark'] .footer-about,
 body[data-theme='dark'] .section-subtitle,
 body[data-theme='dark'] .hero-desc,
-body[data-theme='dark'] .categories-hint {
+body[data-theme='dark'] .categories-hint,
+body[data-theme='dark'] .trust-badge-dot {
   color: var(--text-muted);
 }
 
@@ -125,6 +143,7 @@ body[data-theme='dark'] .toast {
   position: relative;
   overflow: hidden;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transform-style: preserve-3d;
 }
 
 .float-card::before {
@@ -142,9 +161,44 @@ body[data-theme='dark'] .toast {
   box-shadow: 0 20px 32px -16px rgba(59, 130, 246, 0.24);
 }
 
+.floating-ai-btn {
+  position: fixed;
+  right: 26px;
+  bottom: 90px;
+  width: 58px;
+  height: 58px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border-radius: 50%;
+  box-shadow: 0 16px 34px rgba(59, 130, 246, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 120;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.floating-ai-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(59, 130, 246, 0.5);
+}
+
+.floating-ai-btn svg {
+  stroke: currentColor;
+}
+
+@media (max-width: 768px) {
+  .floating-ai-btn {
+    display: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .float-card,
   .theme-toggle .theme-icon,
+  .floating-ai-btn,
   .btn,
   .nav-link,
   .category-chip,

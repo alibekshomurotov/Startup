@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>UstaTop - Mahallada usta topish</title>
+    <meta
+      name="description"
+      content="Mahallangizdagi malakali va ishonchli ustalarni topish, narxlarni solishtirish va tezkor buyurtma berish xizmati."
+    />
+    <meta property="og:title" content="UstaTop - Mahallada usta topish" />
+    <meta
+      property="og:description"
+      content="Mahallangizdagi malakali va ishonchli ustalarni topish, narxlarni solishtirish va tezkor buyurtma berish xizmati."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans (Modern & Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Top Floating Header -->
+    <header class="site-header" id="siteHeader">
+      <div class="container header-container">
+        <!-- Logo -->
+        <a href="#home" class="logo" id="logoLink" aria-label="UstaTop Bosh sahifa">
+          <div class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+            </svg>
+          </div>
+          <span class="logo-text">Usta<span>Top</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-menu" id="navMenu" aria-label="Asosiy menyu">
+          <a href="#home" class="nav-link active" data-nav="home">Bosh sahifa</a>
+          <a href="#masters-section" class="nav-link" data-nav="masters">Ustalar</a>
+          <a href="#how-it-works" class="nav-link" data-nav="how-it-works">Qanday ishlaydi?</a>
+          <a href="#orders-section" class="nav-link" data-nav="orders">
+            Buyurtmalarim
+            <span class="nav-badge" id="ordersCountBadge">0</span>
+          </a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button type="button" class="btn btn-outline btn-ai" id="openAiModalBtn" title="AI Usta Maslahatchisi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+            </svg>
+            <span class="btn-ai-text">AI Maslahatchi</span>
+          </button>
+
+          <a href="#masters-section" class="btn btn-primary nav-order-cta">
+            <span>Usta topish</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Menyu ochish" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="mainContent">
+      <!-- Hero Section -->
+      <section class="hero-section" id="home">
+        <div class="hero-ambient-glow" aria-hidden="true"></div>
+        <div class="container hero-container">
+          <!-- Trust Pill -->
+          <div class="hero-trust-badge">
+            <span class="trust-badge-dot"></span>
+            <span>O‘zbekiston bo‘ylab rasmiy tekshirilgan ustalar</span>
+          </div>
+
+          <!-- Hero Headline with side-sliding words -->
+          <h1 class="hero-title">
+            <span class="anim-slide-left">Ishonchli ustani</span>
+            <span class="highlight-gradient anim-slide-right">mahallangizdan</span>
+            <span class="anim-slide-left">toping</span>
+          </h1>
+
+          <p class="hero-desc anim-slide-right">
+            Uyingizdagi ta’mirlash va texnik muammolar uchun yaqin atrofdagi eng malakali ustalarni solishtiring, narxlarni ko‘ring va bir zumda buyurtma bering.
+          </p>
+
+          <!-- Search & Filter Card -->
+          <div class="search-box-card">
+            <div class="search-form-grid">
+              <!-- Service filter -->
+              <div class="input-group">
+                <label for="heroCategorySelect" class="input-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span>Xizmat turi</span>
+                </label>
+                <select id="heroCategorySelect" class="form-control custom-select">
+                  <option value="all">Barcha xizmatlar</option>
+                  <option value="Santexnik">Santexnik</option>
+                  <option value="Elektrik">Elektrik</option>
+                  <option value="Konditsioner ustasi">Konditsioner ustasi</option>
+                  <option value="Mebel ustasi">Mebel ustasi</option>
+                  <option value="Maishiy texnika ustasi">Maishiy texnika ustasi</option>
+                  <option value="Qurilish ustasi">Qurilish ustasi</option>
+                </select>
+              </div>
+
+              <!-- Region (Viloyat) filter -->
+              <div class="input-group">
+                <label for="heroRegionSelect" class="input-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon>
+                    <line x1="8" y1="2" x2="8" y2="18"></line>
+                    <line x1="16" y1="6" x2="16" y2="22"></line>
+                  </svg>
+                  <span>Viloyat</span>
+                </label>
+                <select id="heroRegionSelect" class="form-control custom-select">
+                  <option value="all">Barcha viloyatlar</option>
+                  <option value="Toshkent shahri">Toshkent shahri</option>
+                  <option value="Toshkent viloyati">Toshkent viloyati</option>
+                  <option value="Samarqand viloyati">Samarqand viloyati</option>
+                  <option value="Farg‘ona viloyati">Farg‘ona viloyati</option>
+                  <option value="Andijon viloyati">Andijon viloyati</option>
+                  <option value="Namangan viloyati">Namangan viloyati</option>
+                  <option value="Buxoro viloyati">Buxoro viloyati</option>
+                  <option value="Xorazm viloyati">Xorazm viloyati</option>
+                  <option value="Qashqadaryo viloyati">Qashqadaryo viloyati</option>
+                  <option value="Surxondaryo viloyati">Surxondaryo viloyati</option>
+                  <option value="Jizzax viloyati">Jizzax viloyati</option>
+                  <option value="Sirdaryo viloyati">Sirdaryo viloyati</option>
+                  <option value="Navoiy viloyati">Navoiy viloyati</option>
+                  <option value="Qoraqalpog‘iston Respublikasi">Qoraqalpog‘iston Resp.</option>
+                </select>
+              </div>
+
+              <!-- District (Tuman / Shahar) filter -->
+              <div class="input-group">
+                <label for="heroDistrictSelect" class="input-label">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  <span>Tuman / Shahar</span>
+                </label>
+                <select id="heroDistrictSelect" class="form-control custom-select">
+                  <option value="all">Barcha tumanlar</option>
+                </select>
+              </div>
+
+              <!-- Search CTA Button -->
+              <div class="input-action">
+                <button type="button" class="btn btn-primary btn-search-hero" id="heroSearchBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <span>Ustalarni topish</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Category Stories / Pills Bar -->
+          <div class="categories-container">
+            <div class="categories-header-row">
+              <span class="categories-title">Ommabop xizmatlar toifasi:</span>
+              <span class="categories-hint">Toifani tanlab tezkor filtrlang</span>
+            </div>
+            <div class="categories-scroll-track" id="categoryChipsList">
+              <button type="button" class="category-chip active" data-category="all">
+                <span class="chip-avatar chip-avatar-all">★</span>
+                <span class="chip-name">Barchasi</span>
+              </button>
+              <button type="button" class="category-chip" data-category="Santexnik">
+                <span class="chip-avatar chip-avatar-water">🚰</span>
+                <span class="chip-name">Santexnik</span>
+              </button>
+              <button type="button" class="category-chip" data-category="Elektrik">
+                <span class="chip-avatar chip-avatar-electric">⚡</span>
+                <span class="chip-name">Elektrik</span>
+              </button>
+              <button type="button" class="category-chip" data-category="Konditsioner ustasi">
+                <span class="chip-avatar chip-avatar-air">❄️</span>
+                <span class="chip-name">Konditsioner</span>
+              </button>
+              <button type="button" class="category-chip" data-category="Mebel ustasi">
+                <span class="chip-avatar chip-avatar-furniture">🪑</span>
+                <span class="chip-name">Mebel</span>
+              </button>
+              <button type="button" class="category-chip" data-category="Maishiy texnika ustasi">
+                <span class="chip-avatar chip-avatar-appliance">🧺</span>
+                <span class="chip-name">Maishiy texnika</span>
+              </button>
+              <button type="button" class="category-chip" data-category="Qurilish ustasi">
+                <span class="chip-avatar chip-avatar-build">🧱</span>
+                <span class="chip-name">Qurilish</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Trust & Performance Stats -->
+          <div class="hero-stats-row">
+            <div class="stat-card">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Malakali tekshirilgan usta</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">15 000+</span>
+              <span class="stat-label">Bajarilgan buyurtmalar</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">4.9 / 5</span>
+              <span class="stat-label">Mijozlar mamnuniyati</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">30 daqiqa</span>
+              <span class="stat-label">O‘rtacha kelish tezligi</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Masters Section -->
+      <section class="section masters-section" id="masters-section">
+        <div class="container">
+          <div class="section-header-row">
+            <div class="section-title-wrap">
+              <span class="section-kicker">Eng sara ustalar</span>
+              <h2 class="section-title">Mahallangizdagi ustalar ro‘yxati</h2>
+              <p class="section-subtitle">
+                O‘zingizga mos ustani tanlang, xizmat narxlarini ko‘ring va darhol buyurtma bering
+              </p>
+            </div>
+
+            <!-- Filter Status & Reset -->
+            <div class="filter-status-box">
+              <span class="results-badge" id="resultsCount">Topilgan ustalar: 6 ta</span>
+              <button type="button" class="btn btn-sm btn-ghost" id="clearFiltersBtn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path>
+                  <path d="M21 3v5h-5"></path>
+                  <path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path>
+                  <path d="M3 21v-5h5"></path>
+                </svg>
+                <span>Tozalash</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Secondary Filters & Search Bar in Masters Section -->
+          <div class="masters-filter-bar">
+            <!-- Text Search -->
+            <div class="filter-search-input-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input
+                type="text"
+                id="searchMasterInput"
+                class="form-control"
+                placeholder="Usta ismi yoki muammo bo‘yicha qidiring (masalan: Azizbek, kran, mebel)..."
+                aria-label="Usta yoki muammo qidirish"
+              />
+            </div>
+
+            <div class="filter-selects-row">
+              <!-- Category Filter -->
+              <div class="filter-select-item">
+                <select id="filterCategory" class="form-control custom-select" aria-label="Xizmat turi filtri">
+                  <option value="all">Barcha xizmatlar</option>
+                  <option value="Santexnik">Santexnik</option>
+                  <option value="Elektrik">Elektrik</option>
+                  <option value="Konditsioner ustasi">Konditsioner ustasi</option>
+                  <option value="Mebel ustasi">Mebel ustasi</option>
+                  <option value="Maishiy texnika ustasi">Maishiy texnika ustasi</option>
+                  <option value="Qurilish ustasi">Qurilish ustasi</option>
+                </select>
+              </div>
+
+              <!-- Region Filter -->
+              <div class="filter-select-item">
+                <select id="filterRegion" class="form-control custom-select" aria-label="Viloyat filtri">
+                  <option value="all">Barcha viloyatlar</option>
+                  <option value="Toshkent shahri">Toshkent shahri</option>
+                  <option value="Toshkent viloyati">Toshkent viloyati</option>
+                  <option value="Samarqand viloyati">Samarqand viloyati</option>
+                  <option value="Farg‘ona viloyati">Farg‘ona viloyati</option>
+                  <option value="Andijon viloyati">Andijon viloyati</option>
+                  <option value="Namangan viloyati">Namangan viloyati</option>
+                  <option value="Buxoro viloyati">Buxoro viloyati</option>
+                  <option value="Xorazm viloyati">Xorazm viloyati</option>
+                  <option value="Qashqadaryo viloyati">Qashqadaryo viloyati</option>
+                  <option value="Surxondaryo viloyati">Surxondaryo viloyati</option>
+                  <option value="Jizzax viloyati">Jizzax viloyati</option>
+                  <option value="Sirdaryo viloyati">Sirdaryo viloyati</option>
+                  <option value="Navoiy viloyati">Navoiy viloyati</option>
+                  <option value="Qoraqalpog‘iston Respublikasi">Qoraqalpog‘iston Resp.</option>
+                </select>
+              </div>
+
+              <!-- District Filter -->
+              <div class="filter-select-item">
+                <select id="filterDistrict" class="form-control custom-select" aria-label="Tuman filtri">
+                  <option value="all">Barcha tumanlar</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Masters Grid -->
+          <div class="masters-grid" id="mastersGrid">
+            <!-- Dynamic JS injection -->
+          </div>
+
+          <!-- Empty State (Hidden by default) -->
+          <div class="empty-state hidden" id="emptyMastersState">
+            <div class="empty-icon">🔍</div>
+            <h3 class="empty-title">Mos usta topilmadi</h3>
+            <p class="empty-desc">
+              Tanlangan filtrlar yoki qidiruv so‘rovingiz bo‘yicha usta topilmadi. Filtrni tozalab qayta urinib ko‘ring.
+            </p>
+            <button type="button" class="btn btn-primary" id="resetFiltersEmptyBtn">
+              Filtrlarni tozalash
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section -->
+      <section class="section how-it-works-section" id="how-it-works">
+        <div class="container">
+          <div class="section-title-wrap text-center">
+            <span class="section-kicker">Oson va tushunarli</span>
+            <h2 class="section-title">Sayt qanday ishlaydi?</h2>
+            <p class="section-subtitle">
+              Atigi uchta oddiy qadamda uyingizdagi istalgan muammoni professional darajada hal qiling
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <!-- Step 1 -->
+            <div class="step-card">
+              <div class="step-badge">1</div>
+              <div class="step-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <h3 class="step-title">Ustani tanlang</h3>
+              <p class="step-desc">
+                Xizmat turi, viloyat va tuman bo‘yicha qidiring. Ustalarning tajribasi, narxlari va sharhlari bilan tanishing.
+              </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+              <div class="step-badge">2</div>
+              <div class="step-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <h3 class="step-title">Buyurtma bering</h3>
+              <p class="step-desc">
+                Muammo tavsifi, telefon raqamingiz, manzil va qulay vaqtni kiritib tezkor buyurtma shaklini to‘ldiring.
+              </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+              <div class="step-badge">3</div>
+              <div class="step-icon-wrap">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <h3 class="step-title">Muammo hal bo‘ldi</h3>
+              <p class="step-desc">
+                Usta belgilangan vaqtda keladi, ishni sifatli va kafolat bilan bajaradi. To‘lov ish yakunlangach qilinadi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Orders Section -->
+      <section class="section orders-section" id="orders-section">
+        <div class="container">
+          <div class="section-header-row">
+            <div class="section-title-wrap">
+              <span class="section-kicker">Mening faoliyatim</span>
+              <h2 class="section-title">Mening buyurtmalarim</h2>
+              <p class="section-subtitle">
+                Yaratilgan buyurtmalarni kuzatib boring, tahrirlang yoki kerak bo‘lsa bekor qiling
+              </p>
+            </div>
+
+            <!-- Orders Filter Tabs -->
+            <div class="segmented-control" id="ordersFilterTabs">
+              <button type="button" class="segment-btn active" data-status="all">
+                <span>Barchasi</span>
+              </button>
+              <button type="button" class="segment-btn" data-status="active">
+                <span>Faol</span>
+              </button>
+              <button type="button" class="segment-btn" data-status="cancelled">
+                <span>Bekor qilingan</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Dynamic Orders List -->
+          <div class="orders-list-wrap" id="ordersListWrap">
+            <!-- Dynamic order cards injected via JS -->
+          </div>
+
+          <!-- Empty Orders State -->
+          <div class="empty-state hidden" id="emptyOrdersState">
+            <div class="empty-icon">📝</div>
+            <h3 class="empty-title">Hozircha buyurtmalar yo‘q</h3>
+            <p class="empty-desc">
+              Siz hali hech qanday usta xizmatiga buyurtma bermagansiz. Mahalla ustalari ro‘yxatidan birini tanlang.
+            </p>
+            <a href="#masters-section" class="btn btn-primary">
+              Birinchi buyurtmani berish
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-container">
+        <!-- Brand Info -->
+        <div class="footer-col footer-col-brand">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+              </svg>
+            </div>
+            <span class="logo-text">Usta<span>Top</span></span>
+          </div>
+          <p class="footer-about">
+            UstaTop — O‘zbekiston mahallalarida ishonchli, tajribali va hamyonbop ustalarni tez topish uchun yaratilgan zamonaviy platforma.
+          </p>
+          <div class="social-links">
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram">Telegram</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">Instagram</a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">YouTube</a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Sahifalar</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Bosh sahifa</a></li>
+            <li><a href="#masters-section">Ustalar ro‘yxati</a></li>
+            <li><a href="#how-it-works">Qanday ishlaydi?</a></li>
+            <li><a href="#orders-section">Mening buyurtmalarim</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Xizmat turlari</h4>
+          <ul class="footer-links">
+            <li><a href="#masters-section">Santexnik xizmati</a></li>
+            <li><a href="#masters-section">Elektrik xizmati</a></li>
+            <li><a href="#masters-section">Konditsioner ta’miri</a></li>
+            <li><a href="#masters-section">Mebel yig‘ish va ta’mir</a></li>
+            <li><a href="#masters-section">Maishiy texnika ta’miri</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Bog‘lanish</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <span>+998 (71) 200-00-00</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <span>info@ustatop.uz</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span>Toshkent shahri, O‘zbekiston</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>© 2026 UstaTop. Barcha huquqlar himoyalangan.</p>
+          <p>O‘zbekiston mahallalari uchun ishonchli texnik xizmatlar portali.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Mobile Bottom App Bar (Instagram / Modern App Style) -->
+    <nav class="mobile-bottom-nav" id="mobileBottomNav" aria-label="Mobil boshqaruv paneli">
+      <a href="#home" class="bottom-nav-item active" data-nav="home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <span>Bosh sahifa</span>
+      </a>
+
+      <a href="#masters-section" class="bottom-nav-item" data-nav="masters">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+        </svg>
+        <span>Ustalar</span>
+      </a>
+
+      <a href="#orders-section" class="bottom-nav-item" data-nav="orders">
+        <div class="bottom-nav-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+          </svg>
+          <span class="mobile-badge" id="mobileOrdersBadge">0</span>
+        </div>
+        <span>Buyurtmalar</span>
+      </a>
+
+      <button type="button" class="bottom-nav-item" id="mobileAiBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>AI Yordamchi</span>
+      </button>
+    </nav>
+
+    <!-- 1. Order Booking Modal -->
+    <div class="modal-backdrop hidden" id="orderModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <div class="modal-sheet">
+        <div class="modal-drag-handle" aria-hidden="true"></div>
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="orderModalTitle">Ustaga buyurtma berish</h3>
+            <p class="modal-subtitle" id="orderModalSubtitle">Malakali usta xizmatidan foydalaning</p>
+          </div>
+          <button type="button" class="modal-close-btn" id="closeOrderModalBtn" aria-label="Yopish">
+            &times;
+          </button>
+        </div>
+
+        <form id="orderForm" class="modal-body">
+          <input type="hidden" id="orderMasterId" />
+          <input type="hidden" id="editingOrderId" />
+
+          <!-- Selected master info banner -->
+          <div class="modal-master-banner" id="orderMasterBanner">
+            <div class="banner-avatar" id="orderMasterAvatar">A</div>
+            <div class="banner-info">
+              <h4 id="orderMasterName">Azizbek</h4>
+              <p id="orderMasterService">Santexnik • Chilonzor tumani</p>
+            </div>
+            <div class="banner-price" id="orderMasterPrice">80 000 so‘m</div>
+          </div>
+
+          <!-- Client name -->
+          <div class="form-group">
+            <label for="orderClientName" class="form-label required">Ismingiz:</label>
+            <input
+              type="text"
+              id="orderClientName"
+              class="form-control"
+              placeholder="Masalan: Anvar Qodirov"
+              required
+            />
+            <div class="field-error" id="orderClientNameError"></div>
+          </div>
+
+          <!-- Phone number -->
+          <div class="form-group">
+            <label for="orderPhone" class="form-label required">Telefon raqamingiz:</label>
+            <input
+              type="tel"
+              id="orderPhone"
+              class="form-control"
+              placeholder="+998 90 123 45 67"
+              required
+            />
+            <div class="field-error" id="orderPhoneError"></div>
+          </div>
+
+          <!-- Date and Time -->
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="orderDate" class="form-label required">Qulay sana:</label>
+              <input
+                type="date"
+                id="orderDate"
+                class="form-control"
+                required
+              />
+              <div class="field-error" id="orderDateError"></div>
+            </div>
+
+            <div class="form-group">
+              <label for="orderTime" class="form-label">Qulay vaqt:</label>
+              <select id="orderTime" class="form-control custom-select">
+                <option value="Ertalab (09:00 - 12:00)">Ertalab (09:00 - 12:00)</option>
+                <option value="Tushdan keyin (12:00 - 15:00)">Tushdan keyin (12:00 - 15:00)</option>
+                <option value="Kechki payt (15:00 - 19:00)">Kechki payt (15:00 - 19:00)</option>
+                <option value="Ixtiyoriy vaqtda">Ixtiyoriy vaqtda</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group">
+            <label for="orderAddress" class="form-label required">Manzilingiz (Mahalla, ko‘cha, uy):</label>
+            <input
+              type="text"
+              id="orderAddress"
+              class="form-control"
+              placeholder="Masalan: Chilonzor 9-mavze, 14-uy, 25-xonadon"
+              required
+            />
+            <div class="field-error" id="orderAddressError"></div>
+          </div>
+
+          <!-- Problem description -->
+          <div class="form-group">
+            <label for="orderProblem" class="form-label required">Muammo tavsifi:</label>
+            <textarea
+              id="orderProblem"
+              class="form-control"
+              rows="3"
+              placeholder="Muammoni qisqacha yozing (Masalan: Oshxonadagi suv krani tomchilab oqyapti, almashtirish kerak)..."
+              required
+            ></textarea>
+            <div class="field-error" id="orderProblemError"></div>
+          </div>
+
+          <!-- Modal footer actions -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="cancelOrderModalBtn">
+              Bekor qilish
+            </button>
+            <button type="submit" class="btn btn-primary" id="submitOrderBtn">
+              Buyurtmani tasdiqlash
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 2. Master Detail Modal (Batafsil) -->
+    <div class="modal-backdrop hidden" id="detailModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="detailModalTitle">
+      <div class="modal-sheet">
+        <div class="modal-drag-handle" aria-hidden="true"></div>
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title" id="detailModalTitle">Usta haqida batafsil</h3>
+            <p class="modal-subtitle" id="detailModalName">Azizbek — Santexnik</p>
+          </div>
+          <button type="button" class="modal-close-btn" id="closeDetailModalBtn" aria-label="Yopish">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body" id="detailModalBody">
+          <!-- Dynamic details content injected by JS -->
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="closeDetailFooterBtn">
+            Yopish
+          </button>
+          <button type="button" class="btn btn-primary" id="detailBookBtn">
+            Buyurtma berish
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Confirm Cancel Order Modal -->
+    <div class="modal-backdrop hidden" id="confirmCancelModalBackdrop" role="dialog" aria-modal="true">
+      <div class="modal-sheet modal-sm">
+        <div class="modal-drag-handle" aria-hidden="true"></div>
+        <div class="modal-header">
+          <h3 class="modal-title">Buyurtmani bekor qilish</h3>
+          <button type="button" class="modal-close-btn" id="closeConfirmModalBtn" aria-label="Yopish">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <p style="font-size: 0.95rem; color: #475569; line-height: 1.5;">
+            Haqiqatan ham ushbu buyurtmani bekor qilmoqchimisiz? Bekor qilingan buyurtma arxivda saqlanadi.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="rejectCancelBtn">
+            Yo‘q, qolsin
+          </button>
+          <button type="button" class="btn btn-danger" id="confirmCancelBtn">
+            Ha, bekor qilinsin
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. AI Maslahatchi Modal (Smart Home Repair Consultant) -->
+    <div class="modal-backdrop hidden" id="aiModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="aiModalTitle">
+      <div class="modal-sheet modal-ai">
+        <div class="modal-drag-handle" aria-hidden="true"></div>
+        <div class="modal-header">
+          <div class="modal-header-with-badge">
+            <div class="ai-sparkle-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="modal-title" id="aiModalTitle">AI Usta Maslahatchi</h3>
+              <p class="modal-subtitle">Ta’mirlash muammolari, narxlar va xavfsizlik bo‘yicha tezkor yordam</p>
+            </div>
+          </div>
+          <button type="button" class="modal-close-btn" id="closeAiModalBtn" aria-label="Yopish">
+            &times;
+          </button>
+        </div>
+
+        <div class="modal-body ai-modal-body">
+          <!-- Chat Thread -->
+          <div class="ai-chat-thread" id="aiChatThread" aria-live="polite">
+            <div class="chat-msg ai-msg">
+              <div class="msg-avatar">🤖</div>
+              <div class="msg-body">
+                <p><strong>Assalomu alaykum!</strong> Men UstaTop aqlli texnik maslahatchisiman.</p>
+                <p>Uyingizdagi qanday muammo bo‘yicha yordam kerak? Masalan: santexnika, kranlar, elektr tarmog‘i, konditsioner yoki mebel ta’miri. Qisqacha yozing, men darhol sababini, yechimini va qaysi ustani chaqirishni aytaman!</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Suggestion Chips -->
+          <div class="ai-prompt-chips" id="aiPromptChips">
+            <button type="button" class="prompt-chip" data-prompt="Krandan doimiy suv oqyapti, nima qilish kerak?">
+              💧 Krandan suv oqyapti
+            </button>
+            <button type="button" class="prompt-chip" data-prompt="Konditsioner sovuq bermayapti, sababi nima bo'lishi mumkin?">
+              ❄️ Konditsioner sovitmayapti
+            </button>
+            <button type="button" class="prompt-chip" data-prompt="Rozetkadan uchqun chiqdi, bu qanchalik xavfli?">
+              ⚡ Rozetkadan uchqun chiqdi
+            </button>
+            <button type="button" class="prompt-chip" data-prompt="Kir yuvish mashinasi suvni chiqarmayapti, nima qilish lozim?">
+              🧺 Kir yuvish mashinasi
+            </button>
+          </div>
+
+          <!-- Chat Input Form -->
+          <form id="aiChatForm" class="ai-chat-form">
+            <input
+              type="text"
+              id="aiChatInput"
+              class="form-control"
+              placeholder="Muammo yoki savolingizni yozing..."
+              autocomplete="off"
+              required
+            />
+            <button type="submit" class="btn btn-primary" id="aiSendBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Yuborish</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+    <!-- Main JavaScript Logic -->
+    <script src="script.js"></script>
+  </body>
+</html>

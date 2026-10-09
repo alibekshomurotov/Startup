@@ -1,0 +1,6 @@
+{
+  "name": "UstaTop - Mahallada usta topish",
+  "description": "Mahallangizdagi malakali va ishonchli ustalarni topish, narxlarni solishtirish va buyurtma berish xizmati.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

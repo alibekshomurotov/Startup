@@ -1,1 +1,1 @@
-/* Empty file - dark mode removed */
+// Dark mode JavaScript removed - using light theme only

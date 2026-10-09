@@ -1,18 +1,18 @@
 (function () {
-  const STORAGE_KEY = 'ustatop_theme';
+  const THEME_KEY = 'ustatop_theme';
   const body = document.body;
-  const toggleBtn = document.getElementById('themeToggleBtn');
 
   function setTheme(theme) {
     const resolvedTheme = theme === 'dark' ? 'dark' : 'light';
     body.setAttribute('data-theme', resolvedTheme);
 
     try {
-      localStorage.setItem(STORAGE_KEY, resolvedTheme);
+      localStorage.setItem(THEME_KEY, resolvedTheme);
     } catch (e) {
-      // no-op if storage unavailable
+      // no-op if localStorage is unavailable
     }
 
+    const toggleBtn = document.getElementById('themeToggleBtn');
     if (!toggleBtn) return;
 
     const isDark = resolvedTheme === 'dark';
@@ -23,9 +23,31 @@
     `;
   }
 
+  function ensureToggleButton() {
+    const headerActions = document.querySelector('.header-actions');
+    if (!headerActions) return;
+
+    if (document.getElementById('themeToggleBtn')) return;
+
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'themeToggleBtn';
+    btn.className = 'btn btn-outline theme-toggle';
+    btn.setAttribute('aria-label', 'Dark mode');
+    btn.innerHTML = '<span class="theme-icon">🌙</span><span class="theme-label">Dark</span>';
+
+    headerActions.insertBefore(btn, headerActions.firstChild);
+    btn.addEventListener('click', () => {
+      const nextTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      setTheme(nextTheme);
+    });
+  }
+
   function initTheme() {
+    ensureToggleButton();
+
     try {
-      const savedTheme = localStorage.getItem(STORAGE_KEY);
+      const savedTheme = localStorage.getItem(THEME_KEY);
       if (savedTheme) {
         setTheme(savedTheme);
         return;
@@ -63,13 +85,6 @@
           el.style.transform = '';
         });
       });
-    });
-  }
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const nextTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      setTheme(nextTheme);
     });
   }
 

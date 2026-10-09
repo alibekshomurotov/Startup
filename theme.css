@@ -1,0 +1,160 @@
+body[data-theme='dark'] {
+  --bg-page: #020817;
+  --bg-surface: #0f172a;
+  --bg-subtle: #111827;
+  --bg-card: #0f172a;
+  --bg-glass: rgba(15, 23, 42, 0.78);
+  --text-main: #e2e8f0;
+  --text-muted: #cbd5e1;
+  --text-subtle: #94a3b8;
+  --text-inverse: #020817;
+  --border-light: rgba(148, 163, 184, 0.22);
+  --border-subtle: rgba(148, 163, 184, 0.12);
+  --border-focus: #60a5fa;
+  --primary: #60a5fa;
+  --primary-hover: #3b82f6;
+  --primary-active: #2563eb;
+  --primary-light: rgba(96, 165, 250, 0.12);
+  --primary-subtle: rgba(96, 165, 250, 0.22);
+  --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);
+  --primary-glow: rgba(96, 165, 250, 0.28);
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-main);
+  transition: background-color 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+
+body[data-theme='dark'] .site-header {
+  background: rgba(15, 23, 42, 0.75);
+  border-bottom-color: var(--border-light);
+}
+
+body[data-theme='dark'] .hero-section {
+  background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.12), transparent 55%), var(--bg-page);
+}
+
+body[data-theme='dark'] .search-box-card,
+body[data-theme='dark'] .stat-card,
+body[data-theme='dark'] .master-card,
+body[data-theme='dark'] .step-card,
+body[data-theme='dark'] .order-card,
+body[data-theme='dark'] .masters-filter-bar,
+body[data-theme='dark'] .modal-sheet,
+body[data-theme='dark'] .site-footer,
+body[data-theme='dark'] .empty-state {
+  background: rgba(15, 23, 42, 0.94);
+  border-color: var(--border-light);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.5);
+}
+
+body[data-theme='dark'] .form-control,
+body[data-theme='dark'] .category-chip,
+body[data-theme='dark'] .results-badge,
+body[data-theme='dark'] .btn-secondary,
+body[data-theme='dark'] .btn-ghost,
+body[data-theme='dark'] .btn-outline,
+body[data-theme='dark'] .prompt-chip,
+body[data-theme='dark'] .segment-btn {
+  background-color: rgba(15, 23, 42, 0.8);
+  color: var(--text-main);
+  border-color: var(--border-light);
+}
+
+body[data-theme='dark'] .nav-link:hover,
+body[data-theme='dark'] .nav-link.active,
+body[data-theme='dark'] .category-chip:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+body[data-theme='dark'] .master-banner {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(14, 116, 144, 0.18));
+}
+
+body[data-theme='dark'] .section-kicker,
+body[data-theme='dark'] .logo-text span,
+body[data-theme='dark'] .highlight-gradient {
+  color: var(--primary);
+}
+
+body[data-theme='dark'] .social-link,
+body[data-theme='dark'] .footer-links a,
+body[data-theme='dark'] .footer-about,
+body[data-theme='dark'] .section-subtitle,
+body[data-theme='dark'] .hero-desc,
+body[data-theme='dark'] .categories-hint {
+  color: var(--text-muted);
+}
+
+body[data-theme='dark'] .toast {
+  background: rgba(15, 23, 42, 0.95);
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+}
+
+.theme-toggle {
+  min-width: 124px;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle .theme-label {
+  font-weight: 700;
+}
+
+.theme-toggle .theme-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: transform 0.25s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(20deg) scale(1.08);
+}
+
+.float-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.float-card::before {
+  content: "";
+  position: absolute;
+  inset: -20% auto auto -30%;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.16), transparent 70%);
+  pointer-events: none;
+}
+
+.float-card:hover {
+  transform: translateY(-5px) rotateX(1deg) rotateY(-1deg);
+  box-shadow: 0 20px 32px -16px rgba(59, 130, 246, 0.24);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-card,
+  .theme-toggle .theme-icon,
+  .btn,
+  .nav-link,
+  .category-chip,
+  .master-card,
+  .step-card,
+  .order-card,
+  .search-box-card,
+  .stat-card,
+  .modal-sheet {
+    transition: none !important;
+    animation: none !important;
+  }
+}
